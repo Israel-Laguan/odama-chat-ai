@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Boda Ana y Daniel">
+  <main>
+    <h1 class="cursive-text color-old-yellow">Nuestra Boda</h1>
+    <blockquote cite="https://www.bible.com/es/bible/149/PRO.18.22.RVR1960">
+      <q>
+        El que halla esposa halla el bien, y alcanza la benevolencia de Jehová
+      </q>
+      <cite> Proverbios 18:22</cite>
+    </blockquote>
+    <h2 class="cursive-text">Ana & Daniel</h2>
+    <p>
+      Con la bendición de Dios y nuestras Madres tenemos el Honor de invitarles
+      a nuestra unión en Matrimonio Civil qué se llevará a acabo:
+    </p>
+
+    <center>
+      <time class="wedding-date color-old-yellow" datetime="2023-11-11">
+        SÁBADO 11 NOVIEMBRE
+      </time>
+      <br />
+      <time class="color-old-yellow">2023</time>
+    </center>
+    <address>
+      <p>Lugar: Hotel Alamo International</p>
+      <p>
+        Direccion: Lomas de San Francisco, final calle 3, No. 7 Antiguo
+        Cuscatlan
+      </p>
+      <p>Hora: <time>4:00 pm.</time></p>
+    </address>
+
+    <h3>
+      Hemos reservado para usted(es) <var class="slots color-old-yellow"></var>
+       espacio(s)
+    </h3>
+
+    <p>Agradecemos sus muestras de carino en regalo de sobre.</p>
+  </main>
+</Layout>
+
+<script>
+  const slotsAvailable =
+    new URLSearchParams(window.location.search).get("slots") || "1";
+  console.log(slotsAvailable);
+
+  document.querySelector(".slots").textContent = slotsAvailable;
+</script>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 1200px;
+    max-width: calc(100% - 2rem);
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .color-old-yellow {
+    color: var(--old-yellow, #cda449);
+  }
+
+  .wedding-date {
+    margin: 20px 0;
+    position: relative;
+  }
+
+  .wedding-date::after {
+    content: "";
+    position: absolute;
+    background-color: var(--old-yellow, #cda449);
+    width: 30%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+  }
+
+  .wedding-date::before {
+    content: "";
+    position: absolute;
+    background-color: var(--old-yellow, #cda449);
+    width: 30%;
+    height: 3px;
+    top: -10px;
+    left: 0;
+  }
+
+  .slots {
+    text-decoration: underline;
+  }
+</style>
